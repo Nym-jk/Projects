@@ -1,0 +1,36 @@
+Notes - sticky note app -  windows desktop application
+
+tech - java , javafx
+
+PROJECT OVERVIEW
+
+Features:
+Create movable sticky notes
+Delete notes
+Notes stored locally
+Simple popup interface
+Can be packaged as a Windows EXE installer
+
+STRUCTURE
+ProjectFolder
+│
+├─ src
+│ ├─ App.java
+│ └─ NoteData.java
+│
+├─ build
+│ └─ (Generated files will appear here)
+│
+└─ README.txt
+
+Tools - installed
+Java JDK (version 17 or later)
+JavaFX SDK
+WiX Toolset (required for Windows EXE installer)
+
+COMPILING CMD - javac --module-path "D:\javafx\javafx-sdk-21.0.10\lib" --add-modules javafx.controls,javafx.fxml App.java NoteData.java 
+CREATE JAR FILE - jar --create --file Notes.jar App.class NoteData.class
+RUN JAR FILE - java --module-path "D:\javafx\javafx-sdk-21.0.10\lib" --add-modules javafx.controls,javafx.fxml -cp Notes.jar App
+
+PACK TO EXE FILE (CMD)
+jpackage --type exe --name MyNotes --input . --main-jar Notes.jar --main-class App --module-path "D:\javafx\javafx-sdk-21.0.10\lib" --add-modules javafx.controls,javafx.fxml,javafx.graphics,javafx.base --win-shortcut --win-menu
